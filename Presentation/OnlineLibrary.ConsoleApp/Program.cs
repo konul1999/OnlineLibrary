@@ -8,9 +8,10 @@ namespace OnlineLibrary.ConsoleApp
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        static void Main()
         {
-           
+            var app = new ManagementApp();
+            app.Run();
         }
     }
 }

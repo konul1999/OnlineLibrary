@@ -17,3 +17,4 @@ C:\Users\ASUS\Desktop\OnlineLibrary\src\Infrastructure\OnlineLibrary.Persistence
 C:\Users\ASUS\Desktop\OnlineLibrary\src\Infrastructure\OnlineLibrary.Persistence\obj\Debug\net8.0\OnlineLibrary.Persistence.pdb
 C:\Users\ASUS\Desktop\OnlineLibrary\src\Infrastructure\OnlineLibrary.Persistence\obj\Debug\net8.0\OnlineLibrary.Persistence.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\OnlineLibrary\src\Infrastructure\OnlineLibrary.Persistence\obj\Debug\net8.0\ref\OnlineLibrary.Persistence.dll
+C:\Users\ASUS\Desktop\OnlineLibrary\src\Infrastructure\OnlineLibrary.Persistence\obj\Debug\net8.0\OnlineLibrary.Persistence.sourcelink.json

@@ -1,4 +1,5 @@
-﻿using OnlineLibrary.Application.Interfaces.Services;
+﻿using OnlineLibrary.Application.Interfaces.Repositories;
+using OnlineLibrary.Application.Interfaces.Services;
 using OnlineLibrary.Domain.Entities;
 using OnlineLibrary.Persistence.Implementations.Repositories;
 using System;
@@ -11,37 +12,25 @@ namespace OnlineLibrary.Persistence.Implementations.Services
 {
     public class AuthorService : IAuthorService
     {
-        private readonly AuthorRepository _repo;
+        private readonly IAuthorRepository _repo;
 
-        public AuthorService(AuthorRepository repo)
+        public AuthorService(IAuthorRepository repo) => _repo = repo;
+
+        public void Create(Author author)
         {
-            _repo = repo;
+            _repo.Add(author);
         }
 
-        public void CreateAuthor(Author author)
+        public List<Author> GetAllAuthors()
         {
-            string authorName = Console.ReadLine();
-
+            return _repo.GetAll();
         }
 
-        public void Delete(int id)
+        public Author? GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repo.GetById(id);
         }
 
-        public List<Author> GetAllBooks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Author GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Book> ShowAuthorsBooks(int id)
-        {
-            throw new NotImplementedException();
-        }
+            
     }
 }

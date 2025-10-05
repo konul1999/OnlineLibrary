@@ -10,8 +10,8 @@ namespace OnlineLibrary.Application.Interfaces.Services
     public interface IBookService
     {
         void Create(Book book);
-        Book GetById(int id);
-        List<Book> GetAllBooks();
         void Delete(int id);
+        Book? GetById(int id);
+        List<Book> GetAllBooks();
     }
 }

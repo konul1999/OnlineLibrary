@@ -136,3 +136,4 @@ C:\Users\ASUS\Desktop\OnlineLibrary\Presentation\OnlineLibrary.ConsoleApp\obj\De
 C:\Users\ASUS\Desktop\OnlineLibrary\Presentation\OnlineLibrary.ConsoleApp\obj\Debug\net8.0\OnlineLibrary.ConsoleApp.pdb
 C:\Users\ASUS\Desktop\OnlineLibrary\Presentation\OnlineLibrary.ConsoleApp\obj\Debug\net8.0\OnlineLibrary.ConsoleApp.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\OnlineLibrary\Presentation\OnlineLibrary.ConsoleApp\obj\Debug\net8.0\ref\OnlineLibrary.ConsoleApp.dll
+C:\Users\ASUS\Desktop\OnlineLibrary\Presentation\OnlineLibrary.ConsoleApp\obj\Debug\net8.0\OnlineLibrary.ConsoleApp.sourcelink.json

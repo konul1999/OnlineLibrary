@@ -1,5 +1,7 @@
-﻿using OnlineLibrary.Application.Interfaces.Services;
+﻿using OnlineLibrary.Application.Interfaces.Repositories;
+using OnlineLibrary.Application.Interfaces.Services;
 using OnlineLibrary.Domain.Entities;
+using OnlineLibrary.Domain.Enums;
 using OnlineLibrary.Persistence.Implementations.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,33 +13,45 @@ namespace OnlineLibrary.Persistence.Implementations.Services
 {
     public class BookService : IBookService
     {
-        private readonly BookRepository _bookRepo;
-        private readonly AuthorRepository _authorRepo;
+        private readonly IBookRepository _bookRepo;
+        private readonly IAuthorRepository _authorRepo;
 
-        public BookService(AuthorRepository authorRepo, BookRepository bookRepo)
+        public BookService(IBookRepository bookRepo, IAuthorRepository authorRepo)
         {
-            _authorRepo = authorRepo;
             _bookRepo = bookRepo;
+            _authorRepo = authorRepo;
         }
 
         public void Create(Book book)
         {
-            throw new NotImplementedException();
+            var author = _authorRepo.GetById(book.AuthorId);
+            if (author == null)
+                throw new Exception("Author not found!");
+
+            _bookRepo.Add(book);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Book book = _bookRepo.GetById(id);
+            if (book == null) throw new Exception("Book not found!");
+
+            if (book.ReservedItems.Any(r => r.Status == Status.Started))
+                throw new Exception("Book is currently in use and cannot be deleted.");
+
+            _bookRepo.Delete(id);
+        }
+
+        public Book? GetById(int id)
+        {
+            return _bookRepo.GetById(id);
         }
 
         public List<Book> GetAllBooks()
         {
-            throw new NotImplementedException();
+            return _bookRepo.GetAll();
         }
 
-        public Book GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
