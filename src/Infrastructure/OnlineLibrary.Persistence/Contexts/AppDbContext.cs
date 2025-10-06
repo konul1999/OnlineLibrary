@@ -18,22 +18,6 @@ namespace OnlineLibrary.Persistence.Contexts
             optionsBuilder.UseSqlServer("Server=.;Database=OnlineLibrary;Trusted_connection=True;TrustServerCertificate=True");
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-
-        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecuteAssembly());
-
-        //    modelBuilder.Entity<Book>()
-        //        .HasMany(c => c.Authors)
-        //        .WithOne(p => p.Book)
-        //        .HasForeignKey(p => p.BookId);
-
-        //    modelBuilder
-        //        .Entity<Book>()
-        //        .HasIndex(p => p.Name)
-        //        .IsUnique();
-        //}
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }

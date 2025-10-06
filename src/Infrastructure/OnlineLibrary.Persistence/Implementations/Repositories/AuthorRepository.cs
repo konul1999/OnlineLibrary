@@ -47,6 +47,11 @@ namespace OnlineLibrary.Persistence.Implementations.Repositories
                 _context.SaveChanges();
             }
         }
+
+        public bool IsExist(int id)
+        {
+            return GetById(id) != null;
+        }
     }
 }
 

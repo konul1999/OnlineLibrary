@@ -36,11 +36,13 @@ namespace OnlineLibrary.Persistence.Implementations.Services
             Book book = _bookRepo.GetById(id);
             if (book == null) throw new Exception("Book not found!");
 
-            if (book.ReservedItems.Any(r => r.Status == Status.Started))
-                throw new Exception("Book is currently in use and cannot be deleted.");
+            if (book.ReservedItems.Any(r => r.Status == Status.Confirmed || r.Status == Status.Started))
+                throw new Exception("Book is currently reserved or in use and cannot be deleted.");
 
             _bookRepo.Delete(id);
         }
+
+       
 
         public Book? GetById(int id)
         {

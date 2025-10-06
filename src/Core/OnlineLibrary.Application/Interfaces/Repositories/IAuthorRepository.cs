@@ -14,5 +14,6 @@ namespace OnlineLibrary.Application.Interfaces.Repositories
         List<Author> GetAll();
         void Update(Author author);
         void Delete(int id);
+        bool IsExist(int id);
     }
 }

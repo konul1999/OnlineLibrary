@@ -13,38 +13,33 @@ namespace OnlineLibrary.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Author> builder)
         {
-            //builder
-            //    .Property(p => p.Name)
-            //    .HasColumnName("AuthorName")
-            //    .HasMaxLength(100)
-            //    .IsRequired();
+            builder.ToTable("Authors");
 
-            ////builder
-            ////    .Property(p => p.Price)
-            ////    .HasColumnType("decimal(6,2)")
-            ////    .IsRequired();
+            builder.HasKey(a => a.Id);
 
-            //builder
-            //    .HasKey(p => p.Id);
+            builder.Property(a => a.Id)
+                   .ValueGeneratedOnAdd();
 
-            //builder
-            //    .Property(p => p.Id)
-            //    .ValueGeneratedOnAdd();
+            builder.Property(a => a.Name)
+                   .HasColumnName("AuthorName")
+                   .HasMaxLength(100)
+                   .IsRequired();
 
+            builder.Property(a => a.Surname)
+                   .HasColumnName("AuthorSurname")
+                   .HasMaxLength(100);
 
-            //builder
-            //   .HasIndex(p => p.Name)
-            //   .IsUnique();
+            builder.Property(a => a.Gender)
+                   .HasConversion<int>() 
+                   .IsRequired();
 
-            ////builder
-            ////    .HasMany(c => c.Authors)
-            ////    .WithOne(p => p.Book)
-            ////    .HasForeignKey(p => p.BookId);
+            builder.HasMany(a => a.Books)
+                   .WithOne(b => b.Author)
+                   .HasForeignKey(b => b.AuthorId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
-            //builder
-            //    .HasIndex(p => p.Name)
-            //    .IsUnique();
+            builder.HasIndex(a => new { a.Name, a.Surname })
+                   .IsUnique();
         }
-
     }
 }

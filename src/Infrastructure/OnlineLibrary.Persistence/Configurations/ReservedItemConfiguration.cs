@@ -13,39 +13,38 @@ namespace OnlineLibrary.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<ReservedItem> builder)
         {
-                //builder
-                //    .Property(p => p.Name)
-                //    .HasColumnName("ReservedItemName")
-                //    .HasMaxLength(100)
-                //    .IsRequired();
+            builder.ToTable("ReservedItems");
 
-                ////builder
-                ////    .Property(p => p.Price)
-                ////    .HasColumnType("decimal(6,2)")
-                ////    .IsRequired();
+            builder.HasKey(r => r.Id);
 
-                //builder
-                //    .HasKey(p => p.Id);
+            builder.Property(r => r.Id)
+                   .ValueGeneratedOnAdd();
 
-                //builder
-                //    .Property(p => p.Id)
-                //    .ValueGeneratedOnAdd();
+            builder.Property(r => r.FinCode)
+                   .HasColumnName("FinCode")
+                   .HasMaxLength(7)
+                   .IsRequired();
 
+            builder.Property(r => r.StartDate)
+                   .HasColumnType("datetime2")
+                   .IsRequired();
 
-                //builder
-                //   .HasIndex(p => p.Name)
-                //   .IsUnique();
+            builder.Property(r => r.EndDate)
+                   .HasColumnType("datetime2")
+                   .IsRequired();
 
-                ////builder
-                ////    .HasMany(c => c.Authors)
-                ////    .WithOne(p => p.Book)
-                ////    .HasForeignKey(p => p.BookId);
+            builder.Property(r => r.Status)
+                   .HasConversion<int>() 
+                   .IsRequired();
 
-                //builder
-                //    .HasIndex(p => p.Name)
-                //    .IsUnique();
-            
+            builder.HasOne(r => r.Book)
+                   .WithMany(b => b.ReservedItems)
+                   .HasForeignKey(r => r.BookId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasIndex(r => r.FinCode)
+                   .IsUnique();
         }
     }
-    
+
 }  
