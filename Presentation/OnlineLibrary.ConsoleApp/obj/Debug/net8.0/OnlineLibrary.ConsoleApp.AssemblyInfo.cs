@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineLibrary.ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d4c3db146bfac03b379070750c7a290b828cbf4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67feeb31b5d2472573ac6b7fc319d9daa15f2486")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineLibrary.ConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineLibrary.ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
